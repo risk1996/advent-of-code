@@ -1,0 +1,8 @@
+[package]
+name = "solution-2015-04-the-ideal-stocking-stuffer"
+version = "0.1.0"
+edition.workspace = true
+
+[dependencies]
+aoc = { version = "0.1.0", path = "../../aoc" }
+md5 = "0.7.0"
