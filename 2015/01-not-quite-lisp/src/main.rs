@@ -17,7 +17,7 @@ fn main() {
     }
   }
 
-  output.write_ln(&format!(
+  output.writeln(&format!(
     "Floor: {floor}\nEntered basement at step: {basement}"
   ));
 }

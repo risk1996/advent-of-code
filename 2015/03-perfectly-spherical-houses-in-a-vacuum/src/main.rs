@@ -49,7 +49,7 @@ fn main() {
 
   let part2 = visited.len();
 
-  output.write_ln(&format!(
+  output.writeln(&format!(
     "Santa Alone: {part1}\nSanta and Robo-Santa: {part2}"
   ));
 }

@@ -27,7 +27,7 @@ fn main() {
     i += 1;
   };
 
-  output.write_ln(&format!(
+  output.writeln(&format!(
     "Nonce (00000): {nonce5}\nNonce (000000): {nonce6}"
   ));
 }

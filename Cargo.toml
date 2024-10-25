@@ -5,6 +5,7 @@ members = [
   "2015/02-i-was-told-there-would-be-no-math",
   "2015/03-perfectly-spherical-houses-in-a-vacuum",
   "2015/04-the-ideal-stocking-stuffer",
+  "2015/05-doesnt-he-have-intern-elves-for-this",
 ]
 resolver = "2"
 

@@ -27,7 +27,7 @@ impl Output {
     self.file.write_all(output.as_bytes()).unwrap();
   }
 
-  pub fn write_ln(&mut self, output: &str) {
+  pub fn writeln(&mut self, output: &str) {
     self.write(&format!("{}\n", output));
   }
 }
@@ -51,6 +51,6 @@ mod tests {
   fn test_output() {
     let mut output = get_output("./output.txt");
     print!("{:?}", output);
-    output.write_ln("Hello, world!");
+    output.writeln("Hello, world!");
   }
 }
