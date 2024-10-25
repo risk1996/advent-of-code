@@ -1,0 +1,2 @@
+Lights: 400410
+Brightness: 15343601
