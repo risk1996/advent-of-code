@@ -1,5 +1,5 @@
 [package]
-name = "solution-2015-01-not-quite-lisp"
+name = "solution-2015-02-i-was-told-there-would-be-no-math"
 version = "0.1.0"
 edition.workspace = true
 

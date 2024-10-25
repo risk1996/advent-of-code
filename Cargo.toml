@@ -1,5 +1,9 @@
 [workspace]
-members = ["aoc", "2015/01-not-quite-lisp"]
+members = [
+  "aoc",
+  "2015/01-not-quite-lisp",
+  "2015/02-i-was-told-there-would-be-no-math",
+]
 resolver = "2"
 
 [profile.release]
