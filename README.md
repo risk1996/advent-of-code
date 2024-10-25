@@ -15,16 +15,24 @@ advent-of-code/
 │   │   ├── Cargo.toml          # Rust package configuration
 │   │   └── README.md           # Explanation of the solution
 │   └── …
+├── .clippy.toml                # Configuration for Clippy, Rust’s linter
+├── .rustfmt.toml               # Configuration for Rustfmt, Rust’s code formatter
 └── README.md
 ```
 
-Each folder represents a specific year and day of the challenge, with subdirectories named by the day and title of the puzzle. Inside each `DD-TITLE` folder:
+Each folder represents a specific year and day of the challenge, with subdirectories named by the day and title of the puzzle. Inside each `day-DD-TITLE` folder:
 - `src/main.rs`: Contains the Rust solution code.
 - `input.txt`: Holds the puzzle input data.
 - `Cargo.toml`: Manages dependencies and configuration.
 - `README.md`: Includes a detailed explanation of the solution approach.
 
-This structure is designed to support a Rust project setup for each day’s challenge, making it easy to compile and run each solution independently.
+The project root includes:
+- `.clippy.toml`: Configures [Clippy](https://github.com/rust-lang/rust-clippy), Rust’s linter, to enforce coding standards, catch common mistakes, and enhance code readability and safety.
+- `.rustfmt.toml`: Configures [Rustfmt](https://github.com/rust-lang/rustfmt), Rust’s automatic code formatter, to ensure consistent code style across the project.
+
+These configuration files help maintain clean, consistent, and idiomatic Rust code throughout the project.
+
+This addition provides details on Clippy and Rustfmt to help users understand the purpose of each configuration file and ensure coding standards.
 
 ## How to Use
 
@@ -48,7 +56,16 @@ Language: Rust
 ## Progress
 | Year | Completion                |
 | ---- | ------------------------- |
-| 2015 | 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥 |
+| 2015 | 🟩🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥 |
+| 2016 | 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥 |
+| 2017 | 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥 |
+| 2018 | 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥 |
+| 2019 | 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥 |
+| 2020 | 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥 |
+| 2021 | 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥 |
+| 2022 | 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥 |
+| 2023 | 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥 |
+| 2024 | 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥 |
 
 ```
 🟩: Completed

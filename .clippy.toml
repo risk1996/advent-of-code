@@ -1,0 +1,4 @@
+cognitive-complexity-threshold = 10 # default 25
+max-fn-params-bools = 2
+max-struct-bools = 2
+too-many-arguments-threshold = 5

@@ -1,6 +1,7 @@
 [package]
-name = "day-1-not-quite-lisp"
+name = "solution-2015-01-not-quite-lisp"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+aoc = { version = "0.1.0", path = "../../aoc" }
