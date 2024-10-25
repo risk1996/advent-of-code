@@ -7,32 +7,36 @@ Welcome to my **Advent of Code** solutions repository! Here you’ll find my sol
 The repository follows this folder structure:
 ```
 advent-of-code/
+├── aoc/                       # Common library crate with shared utilities
+│   ├── src/
+│   │   └── lib.rs             # Shared functions and utilities for solutions
+│   └── Cargo.toml             # Library crate configuration
 ├── YYYY/
 │   ├── DD-TITLE/
 │   │   ├── src/
-│   │   │   └── main.rs         # Solution code for the day’s puzzle
-│   │   ├── input.txt           # Input data for the day’s puzzle
-│   │   ├── Cargo.toml          # Rust package configuration
-│   │   └── README.md           # Explanation of the solution
+│   │   │   └── main.rs        # Solution code for the day’s puzzle
+│   │   ├── input.txt          # Input data for the day’s puzzle
+│   │   └── Cargo.toml         # Day-specific package configuration
 │   └── …
-├── .clippy.toml                # Configuration for Clippy, Rust’s linter
-├── .rustfmt.toml               # Configuration for Rustfmt, Rust’s code formatter
+├── Cargo.toml                 # Top-level workspace configuration
+├── .clippy.toml               # Configuration for Clippy, Rust’s linter
+├── .rustfmt.toml              # Configuration for Rustfmt, Rust’s code formatter
 └── README.md
 ```
 
-Each folder represents a specific year and day of the challenge, with subdirectories named by the day and title of the puzzle. Inside each `day-DD-TITLE` folder:
-- `src/main.rs`: Contains the Rust solution code.
-- `input.txt`: Holds the puzzle input data.
-- `Cargo.toml`: Manages dependencies and configuration.
-- `README.md`: Includes a detailed explanation of the solution approach.
+### Explanation of Key Directories
+
+- `aoc/`: The **common library crate** containing shared functions and utilities used across multiple solution files. Each day's solution can access these utilities by referencing the `aoc` crate.
+- `YYYY/DD-TITLE/`: Each folder represents a specific year and day of the challenge, with subdirectories organized by the day and title of the puzzle.
+
+  Inside each `DD-TITLE` folder:
+  - `src/main.rs`: Contains the Rust solution code for that day.
+  - `input.txt`: Holds the puzzle input data.
+  - `Cargo.toml`: Specifies dependencies and configuration for that day's solution, including a dependency on the `aoc` crate.
 
 The project root includes:
 - `.clippy.toml`: Configures [Clippy](https://github.com/rust-lang/rust-clippy), Rust’s linter, to enforce coding standards, catch common mistakes, and enhance code readability and safety.
 - `.rustfmt.toml`: Configures [Rustfmt](https://github.com/rust-lang/rustfmt), Rust’s automatic code formatter, to ensure consistent code style across the project.
-
-These configuration files help maintain clean, consistent, and idiomatic Rust code throughout the project.
-
-This addition provides details on Clippy and Rustfmt to help users understand the purpose of each configuration file and ensure coding standards.
 
 ## How to Use
 
