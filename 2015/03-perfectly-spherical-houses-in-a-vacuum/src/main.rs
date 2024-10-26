@@ -30,7 +30,8 @@ fn main() {
     visited.insert(position);
   }
 
-  let part1 = visited.len();
+  let part_1 = visited.len();
+  output.write_part(1, part_1);
 
   // Part 2
   let mut positions = (Pos(0, 0), Pos(0, 0));
@@ -47,9 +48,6 @@ fn main() {
     }
   }
 
-  let part2 = visited.len();
-
-  output.writeln(&format!(
-    "Santa Alone: {part1}\nSanta and Robo-Santa: {part2}"
-  ));
+  let part_2 = visited.len();
+  output.write_part(2, part_2);
 }

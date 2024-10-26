@@ -1,2 +1,2 @@
-Santa Alone: 2572
-Santa and Robo-Santa: 2631
+Part 1: 2572
+Part 2: 2631

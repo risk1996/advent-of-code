@@ -37,7 +37,7 @@ fn check_same_letter_with_1_skip(input: &str) -> bool {
 fn main() {
   let (input, mut output) = bootstrap();
 
-  let step1 = input
+  let step_1 = input
     .split("\n")
     .filter(|line| {
       let has_three_vowels = count_vowels(&line) >= 3;
@@ -47,7 +47,8 @@ fn main() {
       !is_naughty && has_three_vowels && has_double_letters
     })
     .count();
-  let step2 = input
+  output.write_part(1, step_1);
+  let step_2 = input
     .split("\n")
     .filter(|line| {
       let has_letter_pairs = collect_letter_pair_indices(&line)
@@ -58,6 +59,5 @@ fn main() {
       has_letter_pairs && has_same_letter_with_1_skip
     })
     .count();
-
-  output.writeln(&format!("Step 1: {step1}\nStep 2: {step2}"));
+  output.write_part(2, step_2);
 }

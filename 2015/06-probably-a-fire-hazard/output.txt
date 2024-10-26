@@ -1,2 +1,2 @@
-Lights: 400410
-Brightness: 15343601
+Part 1: 400410
+Part 2: 15343601

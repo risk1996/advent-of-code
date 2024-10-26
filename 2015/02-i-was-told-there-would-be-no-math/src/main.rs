@@ -29,5 +29,6 @@ fn main() {
     ribbon += 2 * (x + y) + (x * y * z);
   }
 
-  output.writeln(&format!("Area: {area}\nRibbon: {ribbon}"));
+  output.write_part(1, area);
+  output.write_part(2, ribbon);
 }

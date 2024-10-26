@@ -1,0 +1,7 @@
+[package]
+name = "solution-2015-09-all-in-a-single-night"
+version = "0.1.0"
+edition.workspace = true
+
+[dependencies]
+aoc = { version = "0.1.0", path = "../../aoc" }

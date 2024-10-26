@@ -9,6 +9,7 @@ members = [
   "2015/06-probably-a-fire-hazard",
   "2015/07-some-assembly-required",
   "2015/08-matchsticks",
+  "2015/09-all-in-a-single-night",
 ]
 resolver = "2"
 

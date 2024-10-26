@@ -1,1 +1,2 @@
-Hello, world!
+Part 1: Hello, world!
+Part 2: Hello, Advent of Code!

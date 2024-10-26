@@ -1,2 +1,2 @@
-Floor: 232
-Entered basement at step: 1783
+Part 1: 232
+Part 2: 1783

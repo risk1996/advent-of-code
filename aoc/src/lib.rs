@@ -1,3 +1,4 @@
+use std::fmt::Display;
 use std::fs::{metadata, remove_file, File};
 use std::io::{Read, Write};
 
@@ -30,6 +31,10 @@ impl Output {
   pub fn writeln(&mut self, output: &str) {
     self.write(&format!("{}\n", output));
   }
+
+  pub fn write_part(&mut self, part: u8, value: impl Display) {
+    self.writeln(&format!("Part {part}: {value}"));
+  }
 }
 
 pub fn bootstrap() -> (String, Output) {
@@ -51,6 +56,7 @@ mod tests {
   fn test_output() {
     let mut output = get_output("./output.txt");
     print!("{:?}", output);
-    output.writeln("Hello, world!");
+    output.write_part(1, "Hello, world!");
+    output.write_part(2, "Hello, Advent of Code!");
   }
 }

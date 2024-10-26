@@ -70,6 +70,7 @@ fn main() {
     .iter()
     .map(|row| row.iter().filter(|cell| **cell).count())
     .sum();
+  output.write_part(1, on_count);
 
   let mut lights = [[0u8; 1_000]; 1_000];
   for command in commands.iter() {
@@ -92,6 +93,5 @@ fn main() {
     .iter()
     .map(|row| row.iter().map(|cell| *cell as usize).sum::<usize>())
     .sum();
-
-  output.writeln(&format!("Lights: {on_count}\nBrightness: {brightness}"));
+  output.write_part(2, brightness);
 }
