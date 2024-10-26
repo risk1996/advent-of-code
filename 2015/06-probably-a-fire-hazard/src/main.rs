@@ -44,7 +44,6 @@ fn parse(line: &str) -> Command {
 
 fn main() {
   let (input, mut output) = bootstrap();
-  let input = input.trim();
   let commands = input
     .split("\n")
     .map(|line| parse(line))

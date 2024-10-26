@@ -5,7 +5,7 @@ pub fn get_input(filename: &str) -> String {
   let mut file = File::open(filename).unwrap();
   let mut input = String::new();
   file.read_to_string(&mut input).unwrap();
-  input
+  input.trim().to_string()
 }
 
 #[derive(Debug)]

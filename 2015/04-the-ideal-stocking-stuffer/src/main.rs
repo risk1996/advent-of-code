@@ -2,7 +2,6 @@ use aoc::bootstrap;
 
 fn main() {
   let (input, mut output) = bootstrap();
-  let input = input.trim();
 
   let mut i = 0;
   let nonce5 = loop {
