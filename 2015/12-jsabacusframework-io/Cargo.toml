@@ -1,0 +1,9 @@
+[package]
+name = "solution-2015-12-jsabacusframework-io"
+version = "0.1.0"
+edition.workspace = true
+
+[dependencies]
+aoc = { version = "0.1.0", path = "../../aoc" }
+serde = "1.0.213"
+serde_json = "1.0.132"

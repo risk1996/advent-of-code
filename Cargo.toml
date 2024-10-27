@@ -12,6 +12,7 @@ members = [
   "2015/09-all-in-a-single-night",
   "2015/10-elves-look-elves-say",
   "2015/11-corporate-policy",
+  "2015/12-jsabacusframework-io",
 ]
 resolver = "2"
 
