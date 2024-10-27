@@ -31,7 +31,7 @@ fn main() {
   }
 
   let part_1 = visited.len();
-  output.write_part(1, part_1);
+  output.write_part(1, &part_1);
 
   // Part 2
   let mut positions = (Pos(0, 0), Pos(0, 0));
@@ -49,5 +49,5 @@ fn main() {
   }
 
   let part_2 = visited.len();
-  output.write_part(2, part_2);
+  output.write_part(2, &part_2);
 }

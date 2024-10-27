@@ -31,10 +31,10 @@ fn main() {
     .split("\n")
     .map(|line| line.len() - get_memory_string(line).len())
     .sum();
-  output.write_part(1, part_1);
+  output.write_part(1, &part_1);
   let part_2: usize = input
     .split("\n")
     .map(|line| get_representation_string(line).len() - line.len())
     .sum();
-  output.write_part(2, part_2);
+  output.write_part(2, &part_2);
 }

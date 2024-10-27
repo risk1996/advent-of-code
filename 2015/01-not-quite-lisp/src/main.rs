@@ -17,6 +17,6 @@ fn main() {
     }
   }
 
-  output.write_part(1, floor);
-  output.write_part(2, basement);
+  output.write_part(1, &floor);
+  output.write_part(2, &basement);
 }

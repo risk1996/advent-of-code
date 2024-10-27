@@ -126,7 +126,7 @@ fn main() {
   );
   let mut cache = HashMap::<String, u16>::new();
   let part_1 = get_wire_value(&system, &mut cache, "a");
-  output.write_part(1, part_1);
+  output.write_part(1, &part_1);
 
   system.insert(
     "b".to_string(),
@@ -134,5 +134,5 @@ fn main() {
   );
   cache.clear();
   let part_2 = get_wire_value(&system, &mut cache, "a");
-  output.write_part(2, part_2);
+  output.write_part(2, &part_2);
 }

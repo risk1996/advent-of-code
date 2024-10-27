@@ -56,7 +56,7 @@ mod tests {
   fn test_output() {
     let mut output = get_output("./output.txt");
     print!("{:?}", output);
-    output.write_part(1, "Hello, world!");
-    output.write_part(2, "Hello, Advent of Code!");
+    output.write_part(1, &"Hello, world!");
+    output.write_part(2, &"Hello, Advent of Code!");
   }
 }

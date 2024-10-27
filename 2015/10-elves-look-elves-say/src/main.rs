@@ -30,10 +30,10 @@ fn main() {
   let part_1 = (0..40)
     .fold(input.clone(), |acc, _| run_length_encoding(&acc))
     .len();
-  output.write_part(1, part_1);
+  output.write_part(1, &part_1);
 
   let part_2 = (0..50)
     .fold(input.clone(), |acc, _| run_length_encoding(&acc))
     .len();
-  output.write_part(2, part_2);
+  output.write_part(2, &part_2);
 }

@@ -66,7 +66,7 @@ fn main() {
     .collect::<Vec<_>>();
   results.sort_by(|(_, lv), (_, rv)| lv.cmp(rv));
   let part_1 = results[0].1;
-  output.write_part(1, part_1);
+  output.write_part(1, &part_1);
   let part_2 = results.last().unwrap().1;
-  output.write_part(2, part_2);
+  output.write_part(2, &part_2);
 }

@@ -47,7 +47,7 @@ fn main() {
       !is_naughty && has_three_vowels && has_double_letters
     })
     .count();
-  output.write_part(1, step_1);
+  output.write_part(1, &step_1);
   let step_2 = input
     .split("\n")
     .filter(|line| {
@@ -59,5 +59,5 @@ fn main() {
       has_letter_pairs && has_same_letter_with_1_skip
     })
     .count();
-  output.write_part(2, step_2);
+  output.write_part(2, &step_2);
 }
