@@ -16,6 +16,7 @@ members = [
   "2015/12-jsabacusframework-io",
   "2015/13-knights-of-the-dinner-table",
   "2024/01-historian-hysteria",
+  "2024/02-red-nose-reports",
 ]
 # cSpell:enable
 resolver = "2"
