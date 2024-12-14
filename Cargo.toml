@@ -18,6 +18,7 @@ members = [
   "2024/01-historian-hysteria",
   "2024/02-red-nose-reports",
   "2024/03-mull-it-over",
+  "2024/04-ceres-search",
 ]
 # cSpell:enable
 resolver = "2"
