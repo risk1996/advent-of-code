@@ -21,6 +21,7 @@ members = [
   "2024/04-ceres-search",
   "2024/05-print-queue",
   "2024/06-guard-gallivant",
+  "2024/07-bridge-repair",
 ]
 # cSpell:enable
 resolver = "2"
