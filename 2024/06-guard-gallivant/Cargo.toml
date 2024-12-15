@@ -1,0 +1,8 @@
+[package]
+name = "solution-2024-06-guard-gallivant"
+version = "0.1.0"
+edition.workspace = true
+
+[dependencies]
+aoc = { version = "0.1.0", path = "../../aoc" }
+rayon = "1.10.0"
