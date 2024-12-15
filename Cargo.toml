@@ -23,6 +23,7 @@ members = [
   "2024/06-guard-gallivant",
   "2024/07-bridge-repair",
   "2024/08-resonant-collinearity",
+  "2024/09-disk-fragmenter",
 ]
 # cSpell:enable
 resolver = "2"
