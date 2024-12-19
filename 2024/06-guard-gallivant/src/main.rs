@@ -156,7 +156,7 @@ fn place_all_loop_obstacle_possibilities(grid: &Vec<Vec<Cell>>) -> Vec<(usize, u
 
 fn main() {
   let (input, mut output) = bootstrap();
-  let grid = parse_grid(&input.split("\n").collect::<Vec<_>>());
+  let grid = parse_grid(&input.lines().collect::<Vec<_>>());
 
   let (_, part_1_grid) = play(&grid);
   let part_1 = part_1_grid

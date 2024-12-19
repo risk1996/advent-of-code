@@ -38,7 +38,7 @@ fn main() {
   let (input, mut output) = bootstrap();
 
   let step_1 = input
-    .split("\n")
+    .lines()
     .filter(|line| {
       let has_three_vowels = count_vowels(&line) >= 3;
       let has_double_letters = check_double_letters(&line);
@@ -49,7 +49,7 @@ fn main() {
     .count();
   output.write_part(1, &step_1);
   let step_2 = input
-    .split("\n")
+    .lines()
     .filter(|line| {
       let has_letter_pairs = collect_letter_pair_indices(&line)
         .iter()

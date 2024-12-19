@@ -106,7 +106,7 @@ fn get_all_resonant_frequency_locations(input: &Input) -> HashSet<(i64, i64)> {
 
 fn main() {
   let (input, mut output) = bootstrap();
-  let input = parse_input(&input.split("\n").collect::<Vec<_>>());
+  let input = parse_input(&input.lines().collect::<Vec<_>>());
 
   let part_1 = get_all_antinode_locations(&input).len();
   output.write_part(1, &part_1);

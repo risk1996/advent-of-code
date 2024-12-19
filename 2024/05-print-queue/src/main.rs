@@ -74,7 +74,7 @@ fn midpoint(len: usize) -> usize {
 
 fn main() {
   let (input, mut output) = bootstrap();
-  let input = parse_input(&input.split("\n").collect::<Vec<_>>());
+  let input = parse_input(&input.lines().collect::<Vec<_>>());
 
   let processed_input = input
     .queues

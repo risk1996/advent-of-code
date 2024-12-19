@@ -41,7 +41,7 @@ fn main() {
 
   let mut locs: HashSet<String> = HashSet::new();
   let costs = input
-    .split("\n")
+    .lines()
     .map(|line| {
       let parts = line.split(" ").collect::<Vec<_>>();
       let (from, to) = (parts[0].to_string(), parts[2].to_string());

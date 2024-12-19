@@ -117,7 +117,7 @@ fn get_wire_value(
 fn main() {
   let (input, mut output) = bootstrap();
 
-  let mut system = input.split("\n").map(|line| parse_instruction(line)).fold(
+  let mut system = input.lines().map(|line| parse_instruction(line)).fold(
     HashMap::<String, Instruction>::new(),
     |mut acc, (key, value)| {
       acc.insert(key, value);

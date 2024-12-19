@@ -90,7 +90,7 @@ fn find_positions(grid: &Vec<Vec<u8>>, value: u8) -> Vec<(usize, usize)> {
 
 fn main() {
   let (input, mut output) = bootstrap();
-  let input = parse_input(&input.split("\n").collect::<Vec<_>>());
+  let input = parse_input(&input.lines().collect::<Vec<_>>());
 
   let walk_results = find_positions(&input, 0)
     .iter()

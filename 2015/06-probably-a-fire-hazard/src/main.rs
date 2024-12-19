@@ -44,10 +44,7 @@ fn parse(line: &str) -> Command {
 
 fn main() {
   let (input, mut output) = bootstrap();
-  let commands = input
-    .split("\n")
-    .map(|line| parse(line))
-    .collect::<Vec<_>>();
+  let commands = input.lines().map(|line| parse(line)).collect::<Vec<_>>();
 
   let mut lights = [[false; 1_000]; 1_000];
   for command in commands.iter() {

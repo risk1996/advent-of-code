@@ -23,7 +23,7 @@ fn is_report_safe(report: &Vec<i64>) -> bool {
 
 fn main() {
   let (input, mut output) = bootstrap();
-  let input = input.split("\n").map(parse_line).collect::<Vec<_>>();
+  let input = input.lines().map(parse_line).collect::<Vec<_>>();
 
   let part_1 = input.iter().filter(|r| is_report_safe(*r)).count();
   output.write_part(1, &part_1);

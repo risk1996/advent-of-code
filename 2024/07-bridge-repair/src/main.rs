@@ -68,7 +68,7 @@ fn test_add_mull_operator_permutations(
 
 fn main() {
   let (input, mut output) = bootstrap();
-  let input = input.split("\n").map(parse_input).collect::<Vec<_>>();
+  let input = input.lines().map(parse_input).collect::<Vec<_>>();
 
   let part_1_ops = HashSet::from([Operators::Add, Operators::Mul]);
   let part_1 = input

@@ -46,7 +46,7 @@ fn main() {
   let (input, mut output) = bootstrap();
 
   let sentiments = input
-    .split("\n")
+    .lines()
     .map(parse_sentiment)
     .collect::<HashMap<_, _>>();
   let mut names = sentiments.iter().map(|s| &s.0.0).collect::<HashSet<_>>();

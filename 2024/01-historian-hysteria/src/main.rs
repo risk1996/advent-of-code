@@ -17,7 +17,7 @@ fn parse_input(lines: &Vec<&str>) -> (Vec<i64>, Vec<i64>) {
 
 fn main() {
   let (input, mut output) = bootstrap();
-  let (mut col_1, mut col_2) = parse_input(&input.split("\n").collect::<Vec<_>>());
+  let (mut col_1, mut col_2) = parse_input(&input.lines().collect::<Vec<_>>());
 
   col_1.sort();
   col_2.sort();

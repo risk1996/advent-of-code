@@ -5,7 +5,7 @@ fn main() {
 
   let mut area = 0;
   let mut ribbon = 0;
-  for line in input.split("\n") {
+  for line in input.lines() {
     if line == "" {
       continue;
     }

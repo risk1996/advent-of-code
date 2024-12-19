@@ -119,7 +119,7 @@ fn count_cross_mas(chunks: &Vec<[[char; 3]; 3]>) -> usize {
 
 fn main() {
   let (input, mut output) = bootstrap();
-  let input = input.split("\n").collect::<Vec<_>>();
+  let input = input.lines().collect::<Vec<_>>();
 
   let expansion = expand_input(&input);
   let part_1 = count_1d_occurrence("XMAS", &expansion);
