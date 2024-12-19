@@ -25,6 +25,7 @@ members = [
   "2024/08-resonant-collinearity",
   "2024/09-disk-fragmenter",
   "2024/10-hoof-it",
+  "2024/11-plutonian-pebbles",
 ]
 # cSpell:enable
 resolver = "2"
