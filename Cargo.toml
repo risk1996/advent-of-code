@@ -27,6 +27,7 @@ members = [
   "2024/10-hoof-it",
   "2024/11-plutonian-pebbles",
   "2024/12-garden-groups",
+  "2024/13-claw-contraption",
 ]
 # cSpell:enable
 resolver = "2"
