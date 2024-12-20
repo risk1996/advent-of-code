@@ -9,17 +9,11 @@ fn parse_input(lines: &Vec<&str>) -> Vec<Vec<char>> {
     .collect::<Vec<_>>()
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 struct Region {
   label: char,
-  area: usize,
+  positions: HashSet<(usize, usize)>,
   circumference: usize,
-}
-
-impl Region {
-  fn fence_cost(&self) -> usize {
-    self.area * self.circumference
-  }
 }
 
 impl Add for Region {
@@ -27,28 +21,57 @@ impl Add for Region {
 
   fn add(self, rhs: Self) -> Self::Output {
     let label = self.label;
-    let area = self.area + rhs.area;
+    let positions = self
+      .positions
+      .union(&rhs.positions)
+      .map(|p| *p)
+      .collect::<HashSet<_, _>>();
     let circumference = self.circumference + rhs.circumference;
 
     Region {
       label,
-      area,
+      positions,
       circumference,
     }
   }
 }
 
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+enum Direction {
+  Up,
+  Right,
+  Down,
+  Left,
+}
+
+impl Direction {
+  fn all() -> [Direction; 4] {
+    [
+      Direction::Up,
+      Direction::Right,
+      Direction::Down,
+      Direction::Left,
+    ]
+  }
+}
+
+fn step(pos: &(usize, usize), direction: &Direction) -> Option<(usize, usize)> {
+  match direction {
+    | Direction::Up if pos.1 > 0 => Some((pos.0, pos.1 - 1)),
+    | Direction::Right => Some((pos.0 + 1, pos.1)),
+    | Direction::Down => Some((pos.0, pos.1 + 1)),
+    | Direction::Left if pos.0 > 0 => Some((pos.0 - 1, pos.1)),
+    | _ => None,
+  }
+}
+
 fn get_surroundings(pos: (usize, usize), bounds: (usize, usize)) -> Vec<(usize, usize)> {
-  [
-    (pos.0, pos.1.saturating_sub(1)),
-    (pos.0.saturating_add(1), pos.1),
-    (pos.0, pos.1.saturating_add(1)),
-    (pos.0.saturating_sub(1), pos.1),
-  ]
-  .iter()
-  .filter(|&next| *next != pos && next.0 < bounds.0 && next.1 < bounds.1)
-  .map(|next| *next)
-  .collect::<Vec<_>>()
+  Direction::all()
+    .iter()
+    .map(|dir| step(&pos, &dir))
+    .flatten()
+    .filter(|&next| next.0 < bounds.0 && next.1 < bounds.1)
+    .collect::<Vec<_>>()
 }
 
 fn visit(
@@ -67,7 +90,7 @@ fn visit(
 
   let mut result = Region {
     label: value,
-    area: 1,
+    positions: HashSet::from([pos]),
     circumference: 4 - surroundings.len(),
   };
 
@@ -94,15 +117,84 @@ fn compute_regions(grid: &Vec<Vec<char>>) -> Vec<Region> {
     .collect::<Vec<_>>()
 }
 
+fn get_border_directions(
+  positions: &HashSet<(usize, usize)>,
+  pos: (usize, usize),
+) -> Vec<Direction> {
+  Direction::all()
+    .iter()
+    .map(|dir| (dir, step(&pos, &dir)))
+    .filter(|(_, step)| step.map(|s| !positions.contains(&s)).unwrap_or(true))
+    .map(|(dir, _)| *dir)
+    .collect::<Vec<_>>()
+}
+
+fn clear_side_border(
+  borders: &mut Vec<((usize, usize), Direction)>,
+  pivot: &((usize, usize), Direction),
+) {
+  let dir = pivot.1;
+  let neighbors_directions = if matches!(dir, Direction::Up | Direction::Down) {
+    [Direction::Left, Direction::Right]
+  } else {
+    [Direction::Up, Direction::Down]
+  };
+
+  for nd in neighbors_directions {
+    let mut neighbor = pivot.0.clone();
+
+    loop {
+      if let Some(next_neighbor) = step(&neighbor, &nd) {
+        neighbor = next_neighbor;
+
+        if let Some(index) = borders.iter().position(|b| *b == (neighbor, dir)) {
+          borders.remove(index);
+        } else {
+          break;
+        }
+      } else {
+        break;
+      }
+    }
+  }
+}
+
+fn compute_sides(positions: &HashSet<(usize, usize)>) -> usize {
+  let mut borders = positions
+    .iter()
+    .flat_map(|pos| {
+      get_border_directions(positions, *pos)
+        .iter()
+        .map(|dir| (*pos, *dir))
+        .collect::<Vec<_>>()
+    })
+    .collect::<Vec<_>>();
+
+  let mut sides = 0;
+  while borders.len() > 0 {
+    sides += 1;
+    let pivot = borders.pop().unwrap();
+    clear_side_border(&mut borders, &pivot);
+  }
+
+  sides
+}
+
 fn main() {
   let (input, mut output) = bootstrap();
   let input = parse_input(&input.lines().collect::<Vec<_>>());
 
-  let part_1 = compute_regions(&input)
+  let regions = compute_regions(&input);
+
+  let part_1 = regions
     .iter()
-    .map(|r| r.fence_cost())
+    .map(|r| r.positions.len() * r.circumference)
     .sum::<usize>();
   output.write_part(1, &part_1);
 
-  // TODO: part 2
+  let part_2 = regions
+    .iter()
+    .map(|r| r.positions.len() * compute_sides(&r.positions))
+    .sum::<usize>();
+  output.write_part(2, &part_2);
 }
