@@ -1,38 +1,65 @@
+use std::collections::HashMap;
+
 use aoc::bootstrap;
 
-fn parse_input(line: &str) -> Vec<u64> {
+fn parse_input(line: &str) -> Vec<usize> {
   line
     .split(" ")
-    .map(|n| n.parse::<u64>().unwrap())
+    .map(|n| n.parse::<usize>().unwrap())
     .collect::<Vec<_>>()
 }
 
-fn blink(state: &Vec<u64>) -> Vec<u64> {
-  state
+fn blink(n: usize) -> Vec<usize> {
+  match n {
+    | 0 => vec![1],
+    | n if n.to_string().len() % 2 == 0 => {
+      let n = n.to_string();
+      vec![
+        n[0..n.len() / 2].parse::<usize>().unwrap(),
+        n[n.len() / 2..n.len()].parse::<usize>().unwrap(),
+      ]
+    },
+    | n => vec![n * 2_024],
+  }
+}
+
+fn blink_cache(cache: &mut HashMap<(usize, usize), usize>, n: usize, steps: usize) -> usize {
+  if steps == 0 {
+    return 1;
+  }
+
+  if let Some(v) = cache.get(&(n, steps)) {
+    return *v;
+  }
+
+  let next = blink(n);
+  cache.entry((n, 1)).insert_entry(next.len());
+
+  next
     .iter()
-    .flat_map(|n| {
-      if *n == 0 {
-        vec![1]
-      } else if n.to_string().len() % 2 == 0 {
-        let n = n.to_string();
-        vec![
-          n[0..n.len() / 2].parse::<u64>().unwrap(),
-          n[n.len() / 2..n.len()].parse::<u64>().unwrap(),
-        ]
-      } else {
-        vec![n * 2_024]
-      }
+    .map(|v| {
+      let result = blink_cache(cache, *v, steps - 1);
+      cache.entry((*v, steps - 1)).insert_entry(result);
+      result
     })
-    .collect::<Vec<_>>()
+    .sum::<usize>()
 }
 
 fn main() {
   let (input, mut output) = bootstrap();
   let input = parse_input(&input);
 
-  let part_1 = (0..25).fold(input.clone(), |acc, _| blink(&acc));
-  output.write_part(1, &part_1.len());
+  let mut cache = HashMap::<(usize, usize), usize>::new();
 
-  // TODO: part 2
-  // NOTE part_2 is about ~43306923037450
+  let part_1 = input
+    .iter()
+    .map(|n| blink_cache(&mut cache, *n, 25))
+    .sum::<usize>();
+  output.write_part(1, &part_1);
+
+  let part_2 = input
+    .iter()
+    .map(|n| blink_cache(&mut cache, *n, 75))
+    .sum::<usize>();
+  output.write_part(2, &part_2);
 }
