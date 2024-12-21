@@ -1,0 +1,7 @@
+[package]
+name = "solution-2024-14-restroom-redoubt"
+version = "0.1.0"
+edition.workspace = true
+
+[dependencies]
+aoc = { version = "0.1.0", path = "../../aoc" }
